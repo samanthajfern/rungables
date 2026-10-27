@@ -1,81 +1,44 @@
-# Rungables website
+# Run Gables website
 
-This repository is a starter Next.js app for a website that can securely connect to the Heylo API through a server-side proxy.
+The site for [rungables.com](https://rungables.com): Run Gables, a community run club in Coral Gables. Every Tuesday, 7pm, Le Parc Cafe.
 
-## Stack
+Built with Next.js as a fully static site (`output: 'export'`) and hosted on Cloudflare Workers static assets. Every push to `main` deploys automatically.
 
-- Next.js
-- React
-- Vercel-ready for free hosting
+## Editing the site
 
-## Prerequisites
+| To change | Edit |
+| --- | --- |
+| RSVP link, Instagram, Strava, email, Maps link, partners | `lib/site.js` |
+| Group photo | Put the image in `public/` (e.g. `public/group.jpg`), then set `groupPhoto: '/group.jpg'` and the caption in `lib/site.js` |
+| Hero copy and stats | `components/Hero.js` |
+| About cards | `components/About.js` |
+| Tuesday schedule and meet spot | `components/WhenWhere.js` |
+| Upcoming runs list (Fuku night logic) | `components/UpcomingRuns.js` |
+| Colors and fonts | the `:root` block at the top of `styles/globals.css` |
 
-- Node.js 18+
-- npm
-- A Heylo API key
+The upcoming runs list is generated in the visitor's browser from today's date, so it never goes stale and needs no weekly edits.
 
-## Local setup
+## Local development
 
-1. Install dependencies:
+Requires Node 20+.
 
-   ```bash
-   npm install
-   ```
+```bash
+npm install
+npm run dev        # http://localhost:3000, live reload
+npm run build      # writes the static site to out/
+npm run preview    # build, then serve out/ through Cloudflare's local runtime
+```
 
-2. Copy the sample environment file:
+## Deploys
 
-   ```bash
-   cp .env.example .env.local
-   ```
+Cloudflare builds from GitHub using:
 
-3. Fill in your environment values in `.env.local`:
+- Build command: `npm run build`
+- Deploy command: `npx wrangler deploy` (reads `wrangler.jsonc`, uploads `out/`)
+- Environment variable: `NODE_VERSION=20`
 
-   ```bash
-   HEYLO_API_KEY=your_heylo_api_key_here
-   HEYLO_BASE_URL=https://api.heylo.com
-   ```
-
-4. Start the development server:
-
-   ```bash
-   npm run dev
-   ```
-
-5. Open http://localhost:3000
-
-## Production deployment
-
-This is designed to be deployed to Vercel for free. After connecting the repository to Vercel, add the same environment variables in the Vercel dashboard:
-
-- `HEYLO_API_KEY`
-- `HEYLO_BASE_URL`
-
-## Security
-
-- Keep the Heylo API key on the server.
-- Do not expose API keys in browser code.
-- Use a secure reverse proxy pattern like `/api/heylo/fetch` instead of direct browser calls.
+To deploy by hand from your machine: `npx wrangler login` once, then `npm run deploy`.
 
 ## Heylo
 
-Official docs: https://www.heylo.com/help/api
-
-## Basic API usage
-
-The endpoint `/api/heylo/fetch` can act as a proxy. You can pass a path or query parameters to forward to Heylo.
-
-Example:
-
-```bash
-curl http://localhost:3000/api/heylo/fetch?path=/v1/your-endpoint
-```
-
-## Notes
-
-The default API route is intentionally simple and can be extended to:
-
-- authenticate requests,
-- validate payloads,
-- cache responses,
-- add rate limiting,
-- support webhooks.
+The earlier Heylo API proxy was removed before launch. It forwarded requests, with the API key attached, to any URL a visitor supplied. If Heylo data is added later, use a Cloudflare Worker route that calls one fixed Heylo endpoint with GET only and keeps the key in a Worker secret.
