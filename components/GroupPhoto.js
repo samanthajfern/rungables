@@ -1,19 +1,20 @@
 import { site } from '../lib/site';
+import BleedPhoto from './BleedPhoto';
 
 export default function GroupPhoto() {
   if (site.groupPhoto) {
-    // Full-bleed: spans the viewport, edges fade into the page, drifts on scroll (see .photo-bleed in globals.css).
     return (
-      <section className="photo-bleed">
-        <figure>
-          <div className="bleed-frame">
-            {/* Static export can't use next/image optimization, so a plain img is intended. */}
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src={site.groupPhoto} width="2000" height="1334" alt="About a hundred Run Gables runners, many in costume, gathered on the lawn at night" />
-          </div>
-          <figcaption className="wrap">{site.groupPhotoCaption}</figcaption>
-        </figure>
-      </section>
+      <BleedPhoto
+        className="photo-lead"
+        photo={{
+          src: site.groupPhoto,
+          width: 2000,
+          height: 1334,
+          alt: 'About a hundred Run Gables runners, many in costume, gathered on the lawn at night',
+          caption: site.groupPhotoCaption,
+          eager: true,
+        }}
+      />
     );
   }
 

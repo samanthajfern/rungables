@@ -7,7 +7,9 @@ export default function Hero() {
       <div className="wrap">
         <div className="hero-copy">
           <p className="eyebrow">Coral Gables Run Club · Every Tuesday · 7pm</p>
-          <h1>Run for the <em>joy</em> of it.</h1>
+          {/* The logo is the headline; the h1 text stays for search engines and screen readers. */}
+          <h1 className="sr-only">Run Gables, a Coral Gables run club. Run for the joy of it.</h1>
+          <Badge />
           <p className="lede">
             Run Gables is a <strong>women-founded community run club</strong> that meets every Tuesday
             night at Granada Golf Course, where we run or walk a loop together and stick around after to
@@ -23,7 +25,6 @@ export default function Hero() {
             <div className="stat"><b>ALL</b><span>Paces welcome</span></div>
           </div>
         </div>
-        <Badge />
       </div>
     </section>
   );

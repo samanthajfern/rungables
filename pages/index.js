@@ -3,6 +3,7 @@ import { site } from '../lib/site';
 import Nav from '../components/Nav';
 import Hero from '../components/Hero';
 import GroupPhoto from '../components/GroupPhoto';
+import BleedPhoto from '../components/BleedPhoto';
 import About from '../components/About';
 import WhenWhere from '../components/WhenWhere';
 import UpcomingRuns from '../components/UpcomingRuns';
@@ -71,8 +72,11 @@ export default function HomePage() {
         <Hero />
         <GroupPhoto />
         <About />
+        {site.photos[0] && <BleedPhoto className="between" photo={site.photos[0]} />}
         <WhenWhere />
+        {site.photos[1] && <BleedPhoto className="between" photo={site.photos[1]} />}
         <UpcomingRuns />
+        {site.photos[2] && <BleedPhoto className="between" photo={site.photos[2]} />}
         <JoinedBy />
       </main>
       <Footer />
