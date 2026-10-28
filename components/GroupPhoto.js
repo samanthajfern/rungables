@@ -7,6 +7,8 @@ export default function GroupPhoto() {
         <figure>
           <div className={`photo-frame${site.groupPhoto ? ' has-img' : ''}`}>
             {site.groupPhoto ? (
+              // Static export can't use next/image optimization, so a plain img is intended.
+              // eslint-disable-next-line @next/next/no-img-element
               <img src={site.groupPhoto} alt="The Run Gables crew at the start line on a Tuesday night" />
             ) : (
               <div className="ph" role="img" aria-label="Group photo placeholder">
