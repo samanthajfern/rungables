@@ -6,7 +6,7 @@ export default function Hero() {
     <section className="hero">
       <div className="wrap">
         <div className="hero-copy">
-          <p className="eyebrow">Coral Gables · Every Tuesday · 7pm</p>
+          <p className="eyebrow">Coral Gables Run Club · Every Tuesday · 7pm</p>
           <h1>Run for the <em>joy</em> of it.</h1>
           <p className="lede">
             Run Gables is a <strong>women-founded community run club</strong> that meets every Tuesday

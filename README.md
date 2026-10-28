@@ -20,7 +20,7 @@ The upcoming runs list is generated in the visitor's browser from today's date, 
 
 ## Local development
 
-Requires Node 20+.
+Requires Node 22+ (Wrangler 4 needs it).
 
 ```bash
 npm install
@@ -35,7 +35,7 @@ Cloudflare builds from GitHub using:
 
 - Build command: `npm run build`
 - Deploy command: `npx wrangler deploy` (reads `wrangler.jsonc`, uploads `out/`)
-- Environment variable: `NODE_VERSION=20`
+- Environment variable: `NODE_VERSION=22`
 
 To deploy by hand from your machine: `npx wrangler login` once, then `npm run deploy`.
 

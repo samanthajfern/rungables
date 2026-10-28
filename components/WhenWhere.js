@@ -28,7 +28,7 @@ export default function WhenWhere() {
             <div>
               <p className="eyebrow">Meet spot</p>
               <h3>Le Parc Cafe</h3>
-              <p className="addr">Granada Golf Course, Coral Gables</p>
+              <p className="addr">Granada Golf Course<br />{site.meetSpot.street}, {site.meetSpot.city}, {site.meetSpot.region} {site.meetSpot.postalCode}</p>
             </div>
             <div className="routes">
               <div className="route"><b>2.5 MI</b><span>Run the loop</span></div>
