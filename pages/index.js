@@ -39,7 +39,7 @@ const structuredData = {
         addressCountry: 'US',
       },
       areaServed: ['Coral Gables', 'Miami'],
-      sameAs: [site.instagram.url, site.rsvpUrl],
+      sameAs: [site.instagram.url, site.strava, site.rsvpUrl],
     },
   ],
 };
