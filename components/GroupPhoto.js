@@ -9,7 +9,7 @@ export default function GroupPhoto() {
             {site.groupPhoto ? (
               // Static export can't use next/image optimization, so a plain img is intended.
               // eslint-disable-next-line @next/next/no-img-element
-              <img src={site.groupPhoto} alt="The Run Gables crew at the start line on a Tuesday night" />
+              <img src={site.groupPhoto} width="2000" height="1334" alt="About a hundred Run Gables runners, many in costume, gathered on the lawn at night" />
             ) : (
               <div className="ph" role="img" aria-label="Group photo placeholder">
                 <svg viewBox="0 0 24 24" fill="none" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
