@@ -21,7 +21,11 @@ export default function HomePage() {
         <meta property="og:url" content={`${site.url}/`} />
         <meta property="og:title" content={title} />
         <meta property="og:description" content={site.description} />
-        <meta name="twitter:card" content="summary" />
+        <meta property="og:image" content={`${site.url}/og.jpg`} />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta property="og:image:alt" content="The Run Gables crew gathered on the lawn after a Tuesday night run" />
+        <meta name="twitter:card" content="summary_large_image" />
       </Head>
       <Nav />
       <main id="top">
