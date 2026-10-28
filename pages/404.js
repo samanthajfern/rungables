@@ -1,4 +1,5 @@
 import Head from 'next/head';
+import Link from 'next/link';
 import Nav from '../components/Nav';
 import Footer from '../components/Footer';
 
@@ -11,7 +12,7 @@ export default function NotFound() {
         <p className="eyebrow">404</p>
         <h1>You ran <em>off</em> the route.</h1>
         <p>That page doesn&apos;t exist. Head back to the start line and we&apos;ll see you Tuesday.</p>
-        <a className="btn btn-orange" href="/" style={{ justifySelf: 'start' }}>Back to start</a>
+        <Link className="btn btn-orange" href="/" style={{ justifySelf: 'start' }}>Back to start</Link>
       </main>
       <Footer />
     </>
