@@ -56,14 +56,8 @@ header.nav .wrap{display:flex;align-items:center;justify-content:space-between;g
 .stat b{display:block;font-family:var(--display);font-size:1.7rem;font-weight:900;line-height:1.05}
 .stat span{font-size:.85rem;color:var(--muted)}
 
-/* logo badge, rebuilt from logo v3 */
-.badge{width:min(100%,360px);aspect-ratio:1;max-width:100%;justify-self:center;border:10px solid var(--white);border-radius:50%;display:grid;place-items:center;position:relative;text-align:center}
-.badge svg{position:absolute;inset:0;width:100%;height:100%}
-.badge svg text{fill:var(--white);font-family:var(--body);font-weight:700;letter-spacing:.14em}
-.badge .word{font-family:var(--display);font-weight:900;line-height:.85;letter-spacing:-.03em}
-.badge .word .run{display:block;font-size:clamp(3.2rem,13vw,5.4rem)}
-.badge .word .run i{font-style:normal;color:var(--orange)}
-.badge .word .gables{display:block;font-size:clamp(1.6rem,6.4vw,2.6rem);letter-spacing:.02em}
+/* logo badge, Canva logo v3 PNG */
+.badge{display:block;width:min(100%,380px);height:auto;aspect-ratio:1;justify-self:center}
 
 /* group photo */
 .photo{padding-block:0 8px}
