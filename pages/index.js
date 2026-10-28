@@ -1,44 +1,38 @@
+import Head from 'next/head';
+import { site } from '../lib/site';
+import Nav from '../components/Nav';
+import Hero from '../components/Hero';
+import GroupPhoto from '../components/GroupPhoto';
+import About from '../components/About';
+import WhenWhere from '../components/WhenWhere';
+import UpcomingRuns from '../components/UpcomingRuns';
+import JoinedBy from '../components/JoinedBy';
+import Footer from '../components/Footer';
+
 export default function HomePage() {
+  const title = 'Run Gables | Coral Gables Run Club, Tuesdays 7pm';
   return (
-    <main className="page-shell">
-      <section className="hero">
-        <p className="eyebrow">rungables</p>
-        <h1>Website connected to the Heylo API</h1>
-        <p className="lead">
-          This starter is ready for a marketing site, product landing page, or customer portal
-          that pulls data from Heylo through a secure server-side API route.
-        </p>
-
-        <div className="cta-row">
-          <a href="https://www.heylo.com/help/api" target="_blank" rel="noreferrer">
-            View Heylo API docs
-          </a>
-          <a href="/api/heylo/fetch" className="secondary">
-            Test API route
-          </a>
-        </div>
-      </section>
-
-      <section className="card-grid">
-        <article className="card">
-          <h2>Secure by default</h2>
-          <p>
-            Keys live in environment variables and are never exposed to the browser.
-          </p>
-        </article>
-        <article className="card">
-          <h2>Fast & simple</h2>
-          <p>
-            The website calls your own API endpoint, which then proxies the request to Heylo.
-          </p>
-        </article>
-        <article className="card">
-          <h2>Ready for deployment</h2>
-          <p>
-            This app is designed to be deployed on Vercel or any Node-compatible host.
-          </p>
-        </article>
-      </section>
-    </main>
+    <>
+      <Head>
+        <title>{title}</title>
+        <meta name="description" content={site.description} />
+        <link rel="canonical" href={`${site.url}/`} />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content={`${site.url}/`} />
+        <meta property="og:title" content={title} />
+        <meta property="og:description" content={site.description} />
+        <meta name="twitter:card" content="summary" />
+      </Head>
+      <Nav />
+      <main id="top">
+        <Hero />
+        <GroupPhoto />
+        <About />
+        <WhenWhere />
+        <UpcomingRuns />
+        <JoinedBy />
+      </main>
+      <Footer />
+    </>
   );
 }
