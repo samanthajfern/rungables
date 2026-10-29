@@ -45,6 +45,12 @@ const structuredData = {
   ],
 };
 
+// Full-width photo that follows a section, if lib/site.js lists one for it.
+function photoAfter(section) {
+  const photo = site.photos.find((p) => p.after === section);
+  return photo ? <BleedPhoto className="between" photo={photo} /> : null;
+}
+
 export default function HomePage() {
   const title = 'Run Gables | Coral Gables Run Club, Tuesdays 7pm';
   return (
@@ -72,11 +78,11 @@ export default function HomePage() {
         <Hero />
         <GroupPhoto />
         <About />
-        {site.photos[0] && <BleedPhoto className="between" photo={site.photos[0]} />}
+        {photoAfter('about')}
         <WhenWhere />
-        {site.photos[1] && <BleedPhoto className="between" photo={site.photos[1]} />}
+        {photoAfter('whenWhere')}
         <UpcomingRuns />
-        {site.photos[2] && <BleedPhoto className="between" photo={site.photos[2]} />}
+        {photoAfter('upcoming')}
         <JoinedBy />
       </main>
       <Footer />
