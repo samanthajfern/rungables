@@ -51,7 +51,7 @@ function photoAfter(section) {
 }
 
 export default function HomePage() {
-  const title = 'Run Gables | Coral Gables Run Club, Tuesdays 7pm';
+  const title = 'Run Gables | Premier Run Club Coral Gables';
   return (
     <>
       <Head>
