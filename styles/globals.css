@@ -172,7 +172,11 @@ section.band{padding-block:80px}
 /* joined by */
 .joined{display:flex;flex-wrap:wrap;gap:14px 44px;align-items:center;padding-block:36px}
 .joined ul{display:flex;flex-wrap:wrap;gap:12px 40px;list-style:none;margin:0;padding:0}
-.joined li{font-family:var(--display);font-weight:700;font-size:1.2rem;text-transform:uppercase;color:var(--muted)}
+.joined ul{align-items:center}
+.joined li{display:flex;align-items:center}
+.joined img{display:block;height:var(--h);width:auto;max-width:none;opacity:.85;transition:opacity .15s ease}
+.joined li:hover img{opacity:1}
+@media (max-width:600px){.joined ul{gap:16px 22px}.joined img{height:calc(var(--h) * .85)}}
 
 /* footer */
 footer{padding-block:72px 56px;border-top:1px solid var(--line)}
