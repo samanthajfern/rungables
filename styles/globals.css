@@ -48,8 +48,9 @@ header.nav .wrap{display:flex;align-items:center;justify-content:space-between;g
 
 /* hero: group photo, darkened, club name + tagline + RSVP low on it, fades straight into the intro */
 .hero{position:relative;isolation:isolate;overflow:hidden;display:grid;place-items:center;min-height:min(calc(100vh - 70px),820px);min-height:min(calc(100svh - 70px),820px);align-items:end}
-.hero-media{position:absolute;inset:0;z-index:-1}
-.hero-media img{width:100%;height:100%;object-fit:cover;object-position:50% 68%;display:block}
+.hero-media{position:absolute;inset:0;z-index:-1;overflow:hidden}
+/* the photo box is taller than the header and pinned to its bottom, so the extra crop comes off the top (the frame starts around the arches) */
+.hero-media img{position:absolute;left:0;bottom:0;width:100%;height:122%;object-fit:cover;display:block}
 /* vignette: light in the middle, darker toward the edges, then fades to black where the intro starts */
 .hero-media::after{content:"";position:absolute;inset:0;background:radial-gradient(ellipse 80% 75% at 50% 45%,transparent 0%,rgba(0,0,0,.08) 55%,rgba(0,0,0,.45) 100%),linear-gradient(to bottom,rgba(0,0,0,.15) 0%,transparent 18%,transparent 66%,rgba(0,0,0,.6) 88%,#000 100%)}
 .hero-inner{display:grid;justify-items:center;gap:18px;text-align:center;padding-block:40px 28px}
@@ -58,7 +59,7 @@ header.nav .wrap{display:flex;align-items:center;justify-content:space-between;g
 /* tagline parts separated by a dot; on phones the day/time drops to its own line instead of wrapping mid-phrase */
 .hero-tag span+span::before{content:" · "}
 @media (max-width:600px){.hero-tag span{display:block}.hero-tag span+span::before{content:none}}
-@media (max-width:600px){.hero-media img{object-position:50% 72%}.hero-inner{gap:14px;padding-block:24px 20px}}
+@media (max-width:600px){.hero-inner{gap:14px;padding-block:24px 20px}}
 @media (prefers-reduced-motion:no-preference){
   .hero-media{animation:hero-settle 1.8s cubic-bezier(.2,.7,.2,1) both}
   .hero-inner{animation:hero-rise 1s .25s ease-out both}
