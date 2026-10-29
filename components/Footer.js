@@ -33,7 +33,7 @@ export default function Footer() {
   return (
     <footer id="contact">
       <div className="wrap">
-        <p className="sign">Run for the <em>joy</em> of it. 💛</p>
+        <p className="sign">Run for the <em>joy</em> of it. 🧡</p>
         <div className="contact">
           <div>
             <p className="eyebrow">Email</p>

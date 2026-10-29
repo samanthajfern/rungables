@@ -1,31 +1,47 @@
 import { site } from '../lib/site';
 import Badge from './Badge';
 
+// Full-screen group photo with the logo, tagline and RSVP on top; the intro and stats follow below.
 export default function Hero() {
   return (
-    <section className="hero">
-      <div className="wrap">
-        <div className="hero-copy">
-          <p className="eyebrow">Coral Gables Run Club · Every Tuesday · 7pm</p>
+    <>
+      <section className="hero">
+        <div className="hero-media">
+          {/* Static export can't use next/image optimization, so a plain img is intended. */}
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src={site.groupPhoto}
+            width="2000"
+            height="1334"
+            alt="About a hundred Run Gables runners, many in costume, gathered on the lawn at night"
+            fetchpriority="high"
+          />
+        </div>
+        <div className="wrap hero-inner">
           {/* The logo is the headline; the h1 text stays for search engines and screen readers. */}
           <h1 className="sr-only">Run Gables, a Coral Gables run club. Run for the joy of it.</h1>
           <Badge />
+          <p className="hero-tag">Coral Gables Run Club · Every Tuesday · 7pm</p>
+          <a className="btn btn-orange" href={site.rsvpUrl} target="_blank" rel="noopener">RSVP for Tuesday</a>
+        </div>
+        <span className="scroll-cue" aria-hidden="true" />
+      </section>
+
+      <section className="intro">
+        <div className="wrap intro-copy">
           <p className="lede">
             Run Gables is a <strong>women-founded community run club</strong> that meets every Tuesday
             night at Granada Golf Course, where we run or walk a loop together and stick around after to
             stretch, laugh and catch up. ALL paces welcome, always.
           </p>
-          <div className="actions">
-            <a className="btn btn-orange" href={site.rsvpUrl} target="_blank" rel="noopener">RSVP for Tuesday</a>
-            <a className="btn btn-ghost" href={site.instagram.url} target="_blank" rel="noopener">Follow {site.instagram.handle}</a>
-          </div>
+          <a className="btn btn-ghost" href={site.instagram.url} target="_blank" rel="noopener">Follow {site.instagram.handle}</a>
           <div className="stats">
             <div className="stat"><b>EST 2026</b><span>First Tuesday run in January</span></div>
             <div className="stat"><b>120+</b><span>Active members</span></div>
             <div className="stat"><b>ALL</b><span>Paces welcome</span></div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </>
   );
 }

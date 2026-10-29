@@ -11,7 +11,7 @@ export default function BleedPhoto({ photo, className = '' }) {
             width={photo.width}
             height={photo.height}
             alt={photo.alt}
-            loading={photo.eager ? undefined : 'lazy'}
+            loading="lazy"
             style={photo.focus ? { objectPosition: photo.focus } : undefined}
           />
         </div>

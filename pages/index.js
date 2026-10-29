@@ -2,7 +2,6 @@ import Head from 'next/head';
 import { site } from '../lib/site';
 import Nav from '../components/Nav';
 import Hero from '../components/Hero';
-import GroupPhoto from '../components/GroupPhoto';
 import BleedPhoto from '../components/BleedPhoto';
 import About from '../components/About';
 import WhenWhere from '../components/WhenWhere';
@@ -76,7 +75,6 @@ export default function HomePage() {
       <Nav />
       <main id="top">
         <Hero />
-        <GroupPhoto />
         <About />
         {photoAfter('about')}
         <WhenWhere />

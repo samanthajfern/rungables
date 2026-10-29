@@ -1,4 +1,4 @@
-/* Layout: brand-kit black page in full-width bands; logo-badge hero, charcoal "club" band, orange-pill schedule, flyer-style event list, quiet footer.
+/* Layout: brand-kit black page in full-width bands; full-screen group photo hero with the logo on top, charcoal "club" band, orange-pill schedule, flyer-style event list, quiet footer.
    Colors and type come from the Run Gables Canva kit (logo v3 + October Events flyer). Single dark theme by choice, matching the brand. */
 :root{
   --black:#000000;
@@ -45,33 +45,44 @@ header.nav .wrap{display:flex;align-items:center;justify-content:space-between;g
 
 .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
 
-/* hero: centered stack, logo is the headline */
-.hero .wrap{padding-block:40px 32px}
-.hero-copy{display:grid;gap:24px;justify-items:center;text-align:center;min-width:0}
-.hero .lede{max-width:56ch;font-size:1.1rem;color:var(--muted)}
-.hero .lede strong{color:var(--white)}
-.actions{display:flex;flex-wrap:wrap;gap:12px}
-.hero .actions{justify-content:center}
-.stats{display:flex;flex-wrap:wrap;gap:14px 44px;padding-top:24px;border-top:1px solid var(--line)}
-.hero .stats{justify-content:center;width:min(100%,640px)}
-.stat b{display:block;font-family:var(--display);font-size:1.7rem;font-weight:900;line-height:1.05}
-.stat span{font-size:.85rem;color:var(--muted)}
-@media (max-width:600px){.hero .wrap{padding-block:28px 24px}}
+/* hero: full-screen group photo, darkened, logo + tagline + RSVP centered on top, fades into the page */
+.hero{position:relative;isolation:isolate;overflow:hidden;display:grid;place-items:center;min-height:calc(100vh - 66px);min-height:calc(100svh - 66px)}
+.hero-media{position:absolute;inset:0;z-index:-1}
+.hero-media img{width:100%;height:100%;object-fit:cover;object-position:50% 68%;display:block}
+.hero-media::after{content:"";position:absolute;inset:0;background:linear-gradient(to bottom,rgba(0,0,0,.6) 0%,rgba(0,0,0,.4) 35%,rgba(0,0,0,.55) 65%,#000 100%)}
+.hero-inner{display:grid;justify-items:center;gap:22px;text-align:center;padding-block:40px 110px}
+.hero-tag{font-weight:500;font-size:clamp(.72rem,1.7vw,1rem);letter-spacing:.3em;text-transform:uppercase;color:rgba(255,255,255,.88);text-shadow:0 2px 12px rgba(0,0,0,.6)}
+.scroll-cue{position:absolute;left:50%;bottom:22px;width:1px;height:56px;background:linear-gradient(to bottom,transparent,rgba(255,255,255,.8))}
+@media (max-width:600px){.hero-media img{object-position:50% 72%}.hero-inner{gap:18px;padding-block:24px 96px}}
+@media (prefers-reduced-motion:no-preference){
+  .hero-media{animation:hero-settle 1.8s cubic-bezier(.2,.7,.2,1) both}
+  .hero-inner{animation:hero-rise 1s .25s ease-out both}
+  .scroll-cue{animation:cue 2.2s ease-in-out infinite}
+  @supports (animation-timeline:view()){
+    /* photo drifts down slower than the page as you scroll past it */
+    .hero-media img{animation:hero-drift linear both;animation-timeline:view();animation-range:exit 0% exit 100%}
+  }
+}
+@keyframes hero-settle{from{opacity:0;transform:scale(1.08)}to{opacity:1;transform:none}}
+@keyframes hero-rise{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+@keyframes hero-drift{from{transform:none}to{transform:translateY(18%)}}
+@keyframes cue{0%,100%{opacity:.25;transform:scaleY(.6);transform-origin:top}50%{opacity:1;transform:scaleY(1);transform-origin:top}}
 
 /* logo badge, Canva logo v3 PNG */
-.badge{display:block;width:min(78vw,340px);height:auto;aspect-ratio:1}
+.badge{display:block;width:min(72vw,360px);height:auto;aspect-ratio:1;filter:drop-shadow(0 8px 30px rgba(0,0,0,.55))}
 
-/* group photo */
-.photo{padding-block:0 8px}
-.photo figure{margin:0;display:grid;gap:12px}
-.photo-frame{aspect-ratio:21/9;max-width:100%;border-radius:22px;border:2px dashed var(--line);background:var(--ink);display:grid;place-items:center;text-align:center;overflow:hidden}
-.photo-frame .ph{display:grid;gap:10px;justify-items:center;padding:24px;color:var(--muted)}
-.photo-frame .ph svg{width:44px;height:44px;stroke:var(--orange)}
-.photo-frame .ph b{font-family:var(--display);font-weight:900;font-size:clamp(1rem,3vw,1.5rem);color:var(--white);text-transform:uppercase}
-.photo figcaption{font-size:.88rem;color:var(--muted)}
-@media (max-width:600px){.photo-frame{aspect-ratio:4/3}}
+/* intro under the hero */
+.intro .wrap{padding-block:24px 64px}
+.intro-copy{display:grid;gap:24px;justify-items:center;text-align:center;min-width:0}
+.intro .lede{max-width:56ch;font-size:1.1rem;color:var(--muted)}
+.intro .lede strong{color:var(--white)}
+.actions{display:flex;flex-wrap:wrap;gap:12px}
+.stats{display:flex;flex-wrap:wrap;gap:14px 44px;padding-top:24px;border-top:1px solid var(--line)}
+.intro .stats{justify-content:center;width:min(100%,640px)}
+.stat b{display:block;font-family:var(--display);font-size:1.7rem;font-weight:900;line-height:1.05}
+.stat span{font-size:.85rem;color:var(--muted)}
 
-/* full-bleed group photo: edge to edge, all four sides fade into the page, eases in and drifts on scroll */
+/* full-bleed photos between sections: edge to edge, all four sides fade into the page, eases in and drifts on scroll */
 .photo-bleed{padding-bottom:48px}
 .photo-bleed figure{margin:0;display:grid;gap:4px}
 .bleed-frame{position:relative;height:clamp(300px,46vw,680px);overflow:hidden;
@@ -92,10 +103,6 @@ header.nav .wrap{display:flex;align-items:center;justify-content:space-between;g
     .bleed-frame{animation:bleed-in linear both;animation-timeline:view();animation-range:entry 0% cover 45%}
     .bleed-frame img{animation:bleed-drift linear both;animation-timeline:view();animation-range:cover 0% cover 100%}
   }
-}
-/* the first photo is on screen at load, so it fades in on a timer instead of waiting for scroll */
-@media (prefers-reduced-motion:no-preference){
-  .photo-lead .bleed-frame{animation:bleed-in 1.1s ease-out both;animation-timeline:auto}
 }
 @keyframes bleed-in{from{opacity:0;transform:scale(1.04)}to{opacity:1;transform:none}}
 @keyframes bleed-drift{from{transform:translateY(-6%)}to{transform:translateY(6%)}}
