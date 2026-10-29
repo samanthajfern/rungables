@@ -1,7 +1,6 @@
 import { site } from '../lib/site';
-import Badge from './Badge';
 
-// Full-screen group photo with the logo, tagline and RSVP on top; the intro and stats follow below.
+// Full-screen group photo with the club name, tagline and RSVP on top; the intro and stats follow right below.
 export default function Hero() {
   return (
     <>
@@ -18,13 +17,10 @@ export default function Hero() {
           />
         </div>
         <div className="wrap hero-inner">
-          {/* The logo is the headline; the h1 text stays for search engines and screen readers. */}
-          <h1 className="sr-only">Run Gables, a Coral Gables run club. Run for the joy of it.</h1>
-          <Badge />
+          <h1 className="hero-title">Run Gables</h1>
           <p className="hero-tag">Coral Gables Run Club · Every Tuesday · 7pm</p>
           <a className="btn btn-orange" href={site.rsvpUrl} target="_blank" rel="noopener">RSVP for Tuesday</a>
         </div>
-        <span className="scroll-cue" aria-hidden="true" />
       </section>
 
       <section className="intro">
