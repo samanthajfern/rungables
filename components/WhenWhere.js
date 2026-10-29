@@ -86,19 +86,22 @@ export default function WhenWhere() {
   return (
     <section className="band" id="tuesdays">
       <div className="wrap">
-        <div className="section-head">
-          <p className="eyebrow">When &amp; where</p>
-          <h2>Every Tuesday, rain or shine</h2>
-        </div>
+        {/* Two columns on wider screens: heading + schedule on the left, meet spot beside them from the top. */}
         <div className="ww">
-          <ol className="timeline">
-            {schedule.map((s) => (
-              <li key={s.time} className={s.sharp ? 'sharp' : undefined}>
-                <time>{s.time}</time>
-                <div><strong>{s.title}</strong><small>{s.note}</small></div>
-              </li>
-            ))}
-          </ol>
+          <div>
+            <div className="section-head">
+              <p className="eyebrow">When &amp; where</p>
+              <h2>Every Tuesday, rain or shine</h2>
+            </div>
+            <ol className="timeline">
+              {schedule.map((s) => (
+                <li key={s.time} className={s.sharp ? 'sharp' : undefined}>
+                  <time>{s.time}</time>
+                  <div><strong>{s.title}</strong><small>{s.note}</small></div>
+                </li>
+              ))}
+            </ol>
+          </div>
           <Venues />
         </div>
       </div>
