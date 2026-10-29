@@ -23,7 +23,10 @@ export default function Hero() {
         <div className="wrap hero-inner">
           <h1 className="hero-title">Run Gables</h1>
           <p className="hero-tag">Coral Gables Run Club · Every Tuesday · 7pm</p>
-          <a className="btn btn-orange" href={site.rsvpUrl} target="_blank" rel="noopener">RSVP for Tuesday</a>
+          <div className="actions">
+            <a className="btn btn-orange" href={site.rsvpUrl} target="_blank" rel="noopener">RSVP for Tuesday</a>
+            <a className="btn btn-ghost" href={site.instagram.url} target="_blank" rel="noopener">Follow {site.instagram.handle}</a>
+          </div>
         </div>
       </section>
 
@@ -34,7 +37,6 @@ export default function Hero() {
             night at Granada Golf Course, where we run or walk a loop together and stick around after to
             stretch, laugh and catch up. ALL paces welcome, always.
           </p>
-          <a className="btn btn-ghost" href={site.instagram.url} target="_blank" rel="noopener">Follow {site.instagram.handle}</a>
           <div className="stats">
             <div className="stat"><b>EST 2026</b><span>First Tuesday run in January</span></div>
             <div className="stat"><b>120+</b><span>Active members</span></div>

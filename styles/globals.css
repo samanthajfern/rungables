@@ -75,6 +75,9 @@ header.nav .wrap{display:flex;align-items:center;justify-content:space-between;g
 .intro .lede{max-width:56ch;font-size:1.1rem;color:var(--muted)}
 .intro .lede strong{color:var(--white)}
 .actions{display:flex;flex-wrap:wrap;gap:12px}
+.hero .actions{justify-content:center}
+.hero .btn-ghost{background:rgba(0,0,0,.35);backdrop-filter:blur(4px)}
+@media (max-width:440px){.hero .actions{gap:8px}.hero .btn{padding:.75em .9em;font-size:.82rem;white-space:nowrap}}
 .stats{display:flex;flex-wrap:wrap;gap:14px 44px;padding-top:24px;border-top:1px solid var(--line)}
 .intro .stats{justify-content:center;width:min(100%,640px)}
 .stat b{display:block;font-family:var(--display);font-size:1.7rem;font-weight:900;line-height:1.05}
