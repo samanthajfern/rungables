@@ -17,7 +17,7 @@
   color-scheme:dark;
 }
 *{box-sizing:border-box}
-html{scroll-behavior:smooth}
+html{scroll-behavior:smooth;scroll-padding-top:72px}
 body{background:var(--black);color:var(--white);font-family:var(--body);font-size:17px;line-height:1.6;margin:0}
 img{max-width:100%}
 a{color:inherit}
@@ -43,13 +43,32 @@ header.nav .wrap{display:flex;align-items:center;justify-content:space-between;g
 .nav ul a{text-decoration:none;color:var(--muted)}
 .nav ul a:hover{color:var(--white)}
 .nav .btn{padding:.55em 1.2em;font-size:.88rem}
-@media (max-width:760px){.nav ul{display:none}}
+.nav-actions{display:flex;align-items:center;gap:10px}
+.menu-toggle{display:none}
+/* phones: links fold into a Menu button; the open panel drops below the bar */
+@media (max-width:760px){
+  header.nav .wrap{position:relative}
+  .menu-toggle{display:inline-flex;align-items:center;gap:10px;font:inherit;font-size:.88rem;font-weight:600;color:var(--white);background:none;border:1px solid var(--line);border-radius:999px;padding:.55em 1em;cursor:pointer}
+  .menu-toggle .bars,.menu-toggle .bars::before,.menu-toggle .bars::after{display:block;width:14px;height:2px;border-radius:2px;background:currentColor;transition:transform .2s ease,opacity .2s ease}
+  .menu-toggle .bars{position:relative}
+  .menu-toggle .bars::before,.menu-toggle .bars::after{content:"";position:absolute;left:0}
+  .menu-toggle .bars::before{top:-5px}
+  .menu-toggle .bars::after{top:5px}
+  .menu-toggle[aria-expanded="true"] .bars{background:transparent}
+  .menu-toggle[aria-expanded="true"] .bars::before{transform:translateY(5px) rotate(45deg)}
+  .menu-toggle[aria-expanded="true"] .bars::after{transform:translateY(-5px) rotate(-45deg)}
+  .nav ul{display:none;position:absolute;top:100%;left:0;right:0;flex-direction:column;gap:0;padding:8px 20px 16px;background:rgba(0,0,0,.96);backdrop-filter:blur(8px);border-bottom:1px solid var(--line);font-size:1.05rem}
+  .nav ul.open{display:flex}
+  .nav ul li+li{border-top:1px solid var(--line)}
+  .nav ul a{display:block;padding:14px 0;color:var(--white)}
+}
 
 
 /* hero: group photo, darkened, club name + tagline + RSVP low on it, fades straight into the intro */
 .hero{position:relative;isolation:isolate;overflow:hidden;display:grid;place-items:center;min-height:min(calc(100vh - 70px),820px);min-height:min(calc(100svh - 70px),820px);align-items:end}
-.hero-media{position:absolute;inset:0;z-index:-1}
-.hero-media img{width:100%;height:100%;object-fit:cover;object-position:50% 68%;display:block}
+.hero-media{position:absolute;inset:0;z-index:-1;overflow:hidden}
+/* the photo box is taller than the header and pinned to its bottom, so the extra crop comes off the top (the frame starts around the arches) */
+.hero-media img{position:absolute;left:0;bottom:0;width:100%;height:122%;object-fit:cover;display:block}
 /* vignette: light in the middle, darker toward the edges, then fades to black where the intro starts */
 .hero-media::after{content:"";position:absolute;inset:0;background:radial-gradient(ellipse 80% 75% at 50% 45%,transparent 0%,rgba(0,0,0,.08) 55%,rgba(0,0,0,.45) 100%),linear-gradient(to bottom,rgba(0,0,0,.15) 0%,transparent 18%,transparent 66%,rgba(0,0,0,.6) 88%,#000 100%)}
 .hero-inner{display:grid;justify-items:center;gap:18px;text-align:center;padding-block:40px 28px}
@@ -58,7 +77,7 @@ header.nav .wrap{display:flex;align-items:center;justify-content:space-between;g
 /* tagline parts separated by a dot; on phones the day/time drops to its own line instead of wrapping mid-phrase */
 .hero-tag span+span::before{content:" · "}
 @media (max-width:600px){.hero-tag span{display:block}.hero-tag span+span::before{content:none}}
-@media (max-width:600px){.hero-media img{object-position:50% 72%}.hero-inner{gap:14px;padding-block:24px 20px}}
+@media (max-width:600px){.hero-inner{gap:14px;padding-block:24px 20px}}
 @media (prefers-reduced-motion:no-preference){
   .hero-media{animation:hero-settle 1.8s cubic-bezier(.2,.7,.2,1) both}
   .hero-inner{animation:hero-rise 1s .25s ease-out both}
@@ -88,13 +107,13 @@ header.nav .wrap{display:flex;align-items:center;justify-content:space-between;g
 .stat b{display:block;font-family:var(--display);font-size:1.7rem;font-weight:900;line-height:1.05}
 .stat span{font-size:.85rem;color:var(--muted)}
 
-/* full-bleed photos between sections: edge to edge, all four sides fade into the page, eases in and drifts on scroll */
+/* full-bleed photos between sections: edge to edge, top and sides fade into the page (the bottom stays crisp), eases in and drifts on scroll */
 .photo-bleed{padding-bottom:48px;overflow-x:clip}
 .photo-bleed figure{margin:0;display:grid;gap:4px}
 .bleed-frame{position:relative;height:clamp(300px,46vw,680px);overflow:hidden;
-  -webkit-mask-image:linear-gradient(to bottom,transparent 0,#000 10%,#000 86%,transparent 100%),linear-gradient(to right,transparent 0,#000 5%,#000 95%,transparent 100%);
+  -webkit-mask-image:linear-gradient(to bottom,transparent 0,#000 10%),linear-gradient(to right,transparent 0,#000 5%,#000 95%,transparent 100%);
   -webkit-mask-composite:source-in;
-  mask-image:linear-gradient(to bottom,transparent 0,#000 10%,#000 86%,transparent 100%),linear-gradient(to right,transparent 0,#000 5%,#000 95%,transparent 100%);
+  mask-image:linear-gradient(to bottom,transparent 0,#000 10%),linear-gradient(to right,transparent 0,#000 5%,#000 95%,transparent 100%);
   mask-composite:intersect}
 .bleed-frame img{position:absolute;left:0;top:-8%;width:100%;height:116%;object-fit:cover;object-position:50% 72%;display:block;filter:brightness(1.15) contrast(1.03)}
 .photo-bleed figcaption{font-size:.88rem;color:var(--muted)}
@@ -108,8 +127,8 @@ header.nav .wrap{display:flex;align-items:center;justify-content:space-between;g
 @media (max-width:600px){.photo-bleed.flow .bleed-frame{height:auto;aspect-ratio:1}}
 @media (max-width:600px){
   .bleed-frame{height:auto;aspect-ratio:5/4;
-    -webkit-mask-image:linear-gradient(to bottom,transparent 0,#000 8%,#000 90%,transparent 100%),linear-gradient(to right,transparent 0,#000 3%,#000 97%,transparent 100%);
-    mask-image:linear-gradient(to bottom,transparent 0,#000 8%,#000 90%,transparent 100%),linear-gradient(to right,transparent 0,#000 3%,#000 97%,transparent 100%)}
+    -webkit-mask-image:linear-gradient(to bottom,transparent 0,#000 8%),linear-gradient(to right,transparent 0,#000 3%,#000 97%,transparent 100%);
+    mask-image:linear-gradient(to bottom,transparent 0,#000 8%),linear-gradient(to right,transparent 0,#000 3%,#000 97%,transparent 100%)}
 }
 @supports (animation-timeline:view()){
   @media (prefers-reduced-motion:no-preference){
