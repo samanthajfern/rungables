@@ -75,13 +75,13 @@ export default function HomePage() {
       <Nav />
       <main id="top">
         <Hero />
+        <JoinedBy />
         <About />
         {photoAfter('about')}
         <WhenWhere />
         {photoAfter('whenWhere')}
         <UpcomingRuns />
         {photoAfter('upcoming')}
-        <JoinedBy />
       </main>
       <Footer />
     </>
