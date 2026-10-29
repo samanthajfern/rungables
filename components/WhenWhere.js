@@ -33,7 +33,7 @@ function Venues() {
   return (
     <div className="where">
       <p className="eyebrow">Meet spot</p>
-      <div className="venue-tabs" role="tablist" aria-label="Meet spots" onKeyDown={onKeyDown}>
+      <div className="venue-tabs" style={{ '--count': venues.length }} role="tablist" aria-label="Meet spots" onKeyDown={onKeyDown}>
         {venues.map((v, i) => (
           <button
             key={v.id}
@@ -46,10 +46,12 @@ function Venues() {
             tabIndex={i === active ? 0 : -1}
             onClick={() => setActive(i)}
           >
-            {v.name}
+            {v.tab}
           </button>
         ))}
       </div>
+      {/* All panels share one grid cell, so the column keeps the tallest venue's height and nothing below jumps. */}
+      <div className="venues">
       {venues.map((v, i) => (
         <div
           key={v.id}
@@ -75,6 +77,7 @@ function Venues() {
           <a className="btn btn-ghost" href={mapsUrl(v)} target="_blank" rel="noopener">Open in Maps</a>
         </div>
       ))}
+      </div>
     </div>
   );
 }
