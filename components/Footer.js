@@ -37,8 +37,10 @@ export default function Footer() {
         <div className="contact">
           <div>
             <p className="eyebrow">Email</p>
-            <code ref={emailRef}>{site.email}</code>
-            <CopyEmail targetRef={emailRef} />
+            <span className="email-row">
+              <code ref={emailRef}>{site.email}</code>
+              <CopyEmail targetRef={emailRef} />
+            </span>
           </div>
           <div>
             <p className="eyebrow">Instagram</p>

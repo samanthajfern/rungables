@@ -24,7 +24,7 @@ export default function Hero() {
         </div>
         <div className="wrap hero-inner">
           <h1 className="hero-title">Run Gables</h1>
-          <p className="hero-tag">A Miami Run Club</p>
+          <p className="hero-tag"><span>A Miami Run Club</span><span>Every Tuesday · 7pm</span></p>
           <div className="actions">
             <a className="btn btn-orange" href={site.rsvpUrl} target="_blank" rel="noopener">RSVP for Tuesday</a>
             <a className="btn btn-ghost" href={site.instagram.url} target="_blank" rel="noopener">Follow {site.instagram.handle}</a>
@@ -36,7 +36,7 @@ export default function Hero() {
         <div className="wrap intro-copy">
           <p className="lede">
             Run Gables is a <strong>women-founded community run club</strong> built on the belief that
-            running can be joyful alongside community. Meeting every Tuesday in the Coral Gables area. We run
+            running can be joyful alongside community, meeting every Tuesday in the Coral Gables area. We run
             and walk a 2-3 mile loop together and stick around after to stretch, laugh and catch up. ALL paces
             welcome, always.
           </p>
