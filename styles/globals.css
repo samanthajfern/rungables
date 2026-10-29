@@ -17,7 +17,7 @@
   color-scheme:dark;
 }
 *{box-sizing:border-box}
-html{scroll-behavior:smooth}
+html{scroll-behavior:smooth;scroll-padding-top:72px}
 body{background:var(--black);color:var(--white);font-family:var(--body);font-size:17px;line-height:1.6;margin:0}
 img{max-width:100%}
 a{color:inherit}
@@ -43,7 +43,25 @@ header.nav .wrap{display:flex;align-items:center;justify-content:space-between;g
 .nav ul a{text-decoration:none;color:var(--muted)}
 .nav ul a:hover{color:var(--white)}
 .nav .btn{padding:.55em 1.2em;font-size:.88rem}
-@media (max-width:760px){.nav ul{display:none}}
+.nav-actions{display:flex;align-items:center;gap:10px}
+.menu-toggle{display:none}
+/* phones: links fold into a Menu button; the open panel drops below the bar */
+@media (max-width:760px){
+  header.nav .wrap{position:relative}
+  .menu-toggle{display:inline-flex;align-items:center;gap:10px;font:inherit;font-size:.88rem;font-weight:600;color:var(--white);background:none;border:1px solid var(--line);border-radius:999px;padding:.55em 1em;cursor:pointer}
+  .menu-toggle .bars,.menu-toggle .bars::before,.menu-toggle .bars::after{display:block;width:14px;height:2px;border-radius:2px;background:currentColor;transition:transform .2s ease,opacity .2s ease}
+  .menu-toggle .bars{position:relative}
+  .menu-toggle .bars::before,.menu-toggle .bars::after{content:"";position:absolute;left:0}
+  .menu-toggle .bars::before{top:-5px}
+  .menu-toggle .bars::after{top:5px}
+  .menu-toggle[aria-expanded="true"] .bars{background:transparent}
+  .menu-toggle[aria-expanded="true"] .bars::before{transform:translateY(5px) rotate(45deg)}
+  .menu-toggle[aria-expanded="true"] .bars::after{transform:translateY(-5px) rotate(-45deg)}
+  .nav ul{display:none;position:absolute;top:100%;left:0;right:0;flex-direction:column;gap:0;padding:8px 20px 16px;background:rgba(0,0,0,.96);backdrop-filter:blur(8px);border-bottom:1px solid var(--line);font-size:1.05rem}
+  .nav ul.open{display:flex}
+  .nav ul li+li{border-top:1px solid var(--line)}
+  .nav ul a{display:block;padding:14px 0;color:var(--white)}
+}
 
 
 /* hero: group photo, darkened, club name + tagline + RSVP low on it, fades straight into the intro */
