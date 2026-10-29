@@ -9,7 +9,8 @@ Built with Next.js as a fully static site (`output: 'export'`) and hosted on Clo
 | To change | Edit |
 | --- | --- |
 | RSVP link, Instagram, Strava, email, Maps link, partners | `lib/site.js` |
-| Group photo | Put the image in `public/` (e.g. `public/group.jpg`), then set `groupPhoto: '/group.jpg'` and the caption in `lib/site.js` |
+| Header photo | Save it in `public/` as `group-1600.jpg`, `group-2400.jpg` and `group-3200.jpg` (those widths, landscape), then update `groupPhoto` sizes in `lib/site.js` |
+| Photos between sections | Add a landscape image (2000px wide) to `public/` and an entry to `photos` in `lib/site.js`; `after` picks the section it follows |
 | Hero copy and stats | `components/Hero.js` |
 | About cards | `components/About.js` |
 | Tuesday schedule and meet spot | `components/WhenWhere.js` |
