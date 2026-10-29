@@ -12,7 +12,7 @@ export default function JoinedBy() {
 
   return (
     <section className="joined" aria-labelledby="joined-label">
-      <p className="eyebrow" id="joined-label">We&apos;ve worked with</p>
+      <p className="eyebrow" id="joined-label">We&apos;ve partnered with</p>
       {/* Screen readers get the plain list; the moving strip is visual only. */}
       <ul className="sr-only">
         {partners.map((p) => <li key={p.name}>{p.name}</li>)}
