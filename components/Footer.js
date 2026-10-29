@@ -33,12 +33,14 @@ export default function Footer() {
   return (
     <footer id="contact">
       <div className="wrap">
-        <p className="sign">Run for the <em>joy</em> of it. 💛</p>
+        <p className="sign">Run for the <em>joy</em> of it. 🧡</p>
         <div className="contact">
           <div>
             <p className="eyebrow">Email</p>
-            <code ref={emailRef}>{site.email}</code>
-            <CopyEmail targetRef={emailRef} />
+            <span className="email-row">
+              <code ref={emailRef}>{site.email}</code>
+              <CopyEmail targetRef={emailRef} />
+            </span>
           </div>
           <div>
             <p className="eyebrow">Instagram</p>

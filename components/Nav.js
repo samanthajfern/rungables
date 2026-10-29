@@ -1,11 +1,12 @@
 import Link from 'next/link';
 import { site } from '../lib/site';
+import Badge from './Badge';
 
 export default function Nav() {
   return (
     <header className="nav">
       <div className="wrap">
-        <Link className="mark" href="/#top">RUN GABLES<span>.</span></Link>
+        <Link className="mark" href="/#top"><Badge small alt="Run Gables home" /></Link>
         <nav aria-label="Sections">
           <ul>
             <li><Link href="/#about">About</Link></li>
