@@ -1,8 +1,9 @@
 import { site } from '../lib/site';
+import { photoSrc, photoSrcSet } from '../lib/photos';
 
-// Full-screen group photo with the club name, tagline and RSVP on top; the intro and stats follow right below.
+// Full-screen photo with the club name, tagline and RSVP on top; the intro and stats follow right below.
 export default function Hero() {
-  const photo = site.groupPhoto;
+  const photo = site.heroPhoto;
   return (
     <>
       <section className="hero">
@@ -10,13 +11,14 @@ export default function Hero() {
           {/* Static export can't use next/image optimization, so a plain img is intended. */}
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
-            src={`${photo.base}-${photo.widths[1]}.jpg`}
-            srcSet={photo.widths.map((w) => `${photo.base}-${w}.jpg ${w}w`).join(', ')}
+            src={photoSrc(photo)}
+            srcSet={photoSrcSet(photo)}
             // On phones the photo is cropped to fill a tall header, so it renders wider than the screen.
             sizes="(max-width: 900px) 1250px, 100vw"
             width={photo.width}
             height={photo.height}
-            alt="About a hundred Run Gables runners, many in costume, gathered on the lawn at night"
+            alt={photo.alt}
+            style={{ objectPosition: photo.focus }}
             fetchpriority="high"
           />
         </div>
