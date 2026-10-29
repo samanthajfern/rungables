@@ -148,7 +148,15 @@ section.band+section.band{padding-top:0}
 .timeline li.sharp small{color:var(--ink);opacity:.8}
 .timeline strong{display:block;font-size:1rem;font-weight:700;text-transform:uppercase;letter-spacing:.02em}
 .timeline small{color:var(--muted);font-size:.9rem;display:block;line-height:1.4}
-.where{display:grid;gap:22px;align-content:start}
+.where{display:grid;gap:14px;align-content:start;min-width:0}
+/* venue tabs: pill buttons, the open one filled orange */
+.venue-tabs{display:flex;flex-wrap:wrap;gap:8px}
+.venue-tabs button{font:inherit;font-size:.85rem;font-weight:600;color:var(--muted);background:none;border:1px solid var(--line);border-radius:999px;padding:.45em 1em;cursor:pointer;transition:background .15s ease,color .15s ease,border-color .15s ease}
+.venue-tabs button:hover{color:var(--white);border-color:var(--muted)}
+.venue-tabs button[aria-selected="true"]{background:var(--orange);border-color:var(--orange);color:var(--ink)}
+.venue{display:grid;gap:22px;padding-top:10px}
+.venue[hidden]{display:none}
+.venue .when{display:inline-block;font-size:.72rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--orange);margin-bottom:8px}
 .where h3{font-size:1.6rem}
 .where .addr{color:var(--muted)}
 .where .btn{justify-self:start}
