@@ -170,9 +170,11 @@ section.band+section.band{padding-top:0}
 .sig li.blank img{inset:14% 26% auto;width:48%;height:auto;object-fit:contain;opacity:.9}
 .sig li::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(to top,rgba(0,0,0,.88) 0,rgba(0,0,0,.35) 45%,transparent 70%)}
 .sig .count{position:absolute;top:14px;right:14px;background:var(--white);color:var(--ink);font-size:.68rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;padding:.5em .85em;border-radius:4px}
-.sig strong{position:absolute;left:20px;right:20px;bottom:20px;font-family:var(--display);font-weight:900;font-size:1.15rem;line-height:1.15;text-transform:uppercase}
+.sig-name{position:absolute;left:20px;right:20px;bottom:20px;display:grid;gap:6px}
+.sig strong{font-family:var(--display);font-weight:900;font-size:1.15rem;line-height:1.15;text-transform:uppercase}
+.sig-name span{font-size:.85rem;color:rgba(255,255,255,.78)}
 .sig strong::before{content:"";display:block;width:28px;height:3px;background:var(--accent);margin-bottom:10px;border-radius:2px}
-@media (max-width:440px){.sig li.blank img{top:24%}.sig .count{top:10px;right:10px;font-size:.6rem}.sig strong{left:14px;right:14px;bottom:14px;font-size:.9rem}}
+@media (max-width:440px){.sig li.blank img{top:24%}.sig .count{top:10px;right:10px;font-size:.6rem}.sig-name{left:14px;right:14px;bottom:14px}.sig strong{font-size:.9rem}.sig-name span{font-size:.75rem}}
 
 /* partner with us: tall photo beside the pitch */
 .partner{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:clamp(32px,6vw,80px);align-items:center}

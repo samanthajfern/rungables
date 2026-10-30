@@ -16,12 +16,15 @@ export default function SignatureRuns() {
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
                 src={r.photo || '/logo.png'}
-                alt={r.photo ? `Runners at ${r.name}` : ''}
+                alt={r.photo ? r.alt : ''}
                 loading="lazy"
                 style={r.focus ? { objectPosition: r.focus } : undefined}
               />
               <span className="count">{r.count} runners</span>
-              <strong>{r.name}</strong>
+              <div className="sig-name">
+                <strong>{r.name}</strong>
+                {r.with && <span>ft. {r.with}</span>}
+              </div>
             </li>
           ))}
         </ul>
