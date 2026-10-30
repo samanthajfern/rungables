@@ -51,7 +51,7 @@ function photoAfter(section) {
 }
 
 export default function HomePage() {
-  const title = 'Run Gables | Premiere Run Club';
+  const title = 'Run Gables | Premiere Run Club, Tuesdays 7pm';
   return (
     <>
       <Head>
