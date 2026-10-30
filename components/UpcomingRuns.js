@@ -18,7 +18,7 @@ function nextTuesdays(count) {
 
 export default function UpcomingRuns() {
   const [runs, setRuns] = useState([]);
-  useEffect(() => setRuns(nextTuesdays(6)), []);
+  useEffect(() => setRuns(nextTuesdays(4)), []);
 
   return (
     <section className="band events" id="events">

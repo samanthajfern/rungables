@@ -157,6 +157,23 @@ section.band+section.band{padding-top:0}
 .tag.p{background:var(--pink);color:var(--ink)}
 .tag.b{background:var(--blue);color:var(--ink)}
 
+/* past events: photo cards with a headcount badge and the name over a dark fade */
+.sig-head{justify-items:center;text-align:center;margin-inline:auto}
+.sig{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:20px}
+@media (max-width:900px){.sig{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}}
+.sig li{--accent:var(--orange);position:relative;aspect-ratio:1/1.05;border-radius:18px;overflow:hidden;background:var(--panel);border:1px solid var(--line);isolation:isolate}
+.sig li.pink{--accent:var(--pink)}
+.sig li.blue{--accent:var(--blue)}
+.sig img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2}
+/* no photo yet: the logo on a glow of the card's color */
+.sig li.blank{background:radial-gradient(circle at 50% 38%,color-mix(in srgb,var(--accent) 45%,transparent),transparent 70%),var(--panel)}
+.sig li.blank img{inset:14% 26% auto;width:48%;height:auto;object-fit:contain;opacity:.9}
+.sig li::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(to top,rgba(0,0,0,.88) 0,rgba(0,0,0,.35) 45%,transparent 70%)}
+.sig .count{position:absolute;top:14px;right:14px;background:var(--white);color:var(--ink);font-size:.68rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;padding:.5em .85em;border-radius:4px}
+.sig strong{position:absolute;left:20px;right:20px;bottom:20px;font-family:var(--display);font-weight:900;font-size:1.15rem;line-height:1.15;text-transform:uppercase}
+.sig strong::before{content:"";display:block;width:28px;height:3px;background:var(--accent);margin-bottom:10px;border-radius:2px}
+@media (max-width:440px){.sig li.blank img{top:24%}.sig .count{top:10px;right:10px;font-size:.6rem}.sig strong{left:14px;right:14px;bottom:14px;font-size:.9rem}}
+
 /* when & where */
 /* align-items:start keeps the schedule its own height instead of stretching to match the venue column */
 .ww{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:48px;align-items:start}
@@ -192,10 +209,10 @@ section.band+section.band{padding-top:0}
 
 /* upcoming, flyer-style pills */
 .events{background:linear-gradient(to bottom,var(--ink) 0,var(--ink) calc(100% - 140px),var(--black) 100%)}
-.upcoming{display:grid;border-top:2px solid var(--white);min-height:200px}
-.row{display:grid;grid-template-columns:6.5rem minmax(0,1fr) auto;gap:20px;align-items:center;padding:18px 4px;border-bottom:1px solid var(--line)}
-.row .date{font-family:var(--display);font-weight:900;font-size:1.5rem;line-height:1;font-variant-numeric:tabular-nums}
-.row .date small{display:block;font-family:var(--body);font-size:.7rem;font-weight:600;letter-spacing:.12em;color:var(--muted);margin-top:6px}
+.upcoming{display:grid;border-top:2px solid var(--white);min-height:160px}
+.row{display:grid;grid-template-columns:6.5rem minmax(0,1fr) auto;gap:20px;align-items:center;padding:12px 4px;border-bottom:1px solid var(--line)}
+.row .date{font-family:var(--display);font-weight:900;font-size:1.25rem;line-height:1;font-variant-numeric:tabular-nums}
+.row .date small{display:block;font-family:var(--body);font-size:.66rem;font-weight:600;letter-spacing:.12em;color:var(--muted);margin-top:4px}
 .row .what strong{display:block;font-size:1.02rem;font-weight:600}
 .row .what span{color:var(--muted);font-size:.92rem}
 .chip{font-size:.7rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;padding:.35em .85em;border-radius:999px;border:1px solid var(--line);color:var(--muted);white-space:nowrap}

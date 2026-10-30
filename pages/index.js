@@ -4,6 +4,7 @@ import Nav from '../components/Nav';
 import Hero from '../components/Hero';
 import BleedPhoto from '../components/BleedPhoto';
 import About from '../components/About';
+import SignatureRuns from '../components/SignatureRuns';
 import WhenWhere from '../components/WhenWhere';
 import UpcomingRuns from '../components/UpcomingRuns';
 import JoinedBy from '../components/JoinedBy';
@@ -77,6 +78,7 @@ export default function HomePage() {
         <Hero />
         <JoinedBy />
         <About />
+        <SignatureRuns />
         {photoAfter('about')}
         <WhenWhere />
         {photoAfter('whenWhere')}

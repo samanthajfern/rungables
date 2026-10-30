@@ -14,6 +14,7 @@ Built with Next.js as a fully static site (`output: 'export'`) and hosted on Clo
 | Photos between sections | Same three widths, then add an entry to `photos` in `lib/site.js`; `after` picks the section it follows, `flow: true` blends it into both sections |
 | Hero copy and stats | `components/Hero.js` |
 | About cards | `components/About.js` |
+| Past events cards (name, headcount, photo) | `signatureRuns` in `lib/site.js`; photos go in `public/events/` |
 | Tuesday schedule | `components/WhenWhere.js` |
 | Favicon | `public/favicon.ico`, `public/icon-192.png`, `public/icon-512.png` (the logo on a black circle) |
 | Upcoming runs list (Fuku night logic) | `components/UpcomingRuns.js` |
