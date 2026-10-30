@@ -13,8 +13,9 @@ export default function Hero() {
           <img
             src={photoSrc(photo)}
             srcSet={photoSrcSet(photo)}
-            // On phones the photo is cropped to fill a tall header, so it renders wider than the screen.
-            sizes="(max-width: 900px) 1250px, 100vw"
+            // The photo is cropped to fill the header, so it renders wider than the screen on phones; on
+            // desktops we ask for at least the 2400px file so it stays crisp even on standard (1x) screens.
+            sizes="(max-width: 900px) 1250px, max(100vw, 2000px)"
             width={photo.width}
             height={photo.height}
             alt={photo.alt}
