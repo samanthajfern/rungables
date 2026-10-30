@@ -20,7 +20,7 @@ export default function PartnerWithUs() {
           <p className="eyebrow">Brands &amp; venues</p>
           <h2>Partner with us</h2>
           <p>
-            Put your brand in front of 120+ runners in Coral Gables every Tuesday. We team up with local
+            Put your brand in front of our community of 200+ runners in Coral Gables. We team up with local
             businesses and brands for run nights, demos and post-run hangs.
           </p>
           <a className="btn btn-orange" href={mail}>Get in touch</a>

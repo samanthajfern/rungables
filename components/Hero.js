@@ -42,7 +42,7 @@ export default function Hero() {
           </p>
           <div className="stats">
             <div className="stat"><b>EST 2026</b><span>First Tuesday run in January</span></div>
-            <div className="stat"><b>120+</b><span>Active members</span></div>
+            <div className="stat"><b>200+</b><span>Active members</span></div>
             <div className="stat"><b>ALL</b><span>Paces welcome</span></div>
           </div>
         </div>

@@ -15,7 +15,7 @@ export default function About() {
           <article className="pillar">
             <span className="tag p">Who we are</span>
             <h3>Started from zero</h3>
-            <p><a href="https://samfernandez.com" target="_blank" rel="noopener">Samantha</a> started Run Gables in January 2026 after a run club in Seattle showed her how much easier running feels with people beside you. What began as a handful of neighbors has grown into a crew of 120+ who keep showing up for each other.</p>
+            <p><a href="https://samfernandez.com" target="_blank" rel="noopener">Samantha</a> started Run Gables in January 2026 after a run club in Seattle showed her how much easier running feels with people beside you. What began as a handful of neighbors has grown into a crew of 200+ who keep showing up for each other.</p>
           </article>
           <article className="pillar">
             <span className="tag b">What we believe</span>
